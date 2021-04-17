@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	printf("des_display process ID: %d \n", getpid());/*display thread-waker process ID*/
+	return EXIT_SUCCESS;
+}

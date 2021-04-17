@@ -1,0 +1,183 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "des.h"
+
+#include <string.h>
+
+
+void *state_start();
+void *state_ls();
+void *state_rs();
+void *state_ws();
+void *state_lo();
+void *state_ro();
+void *state_lc();
+void *state_rc();
+void *state_gru();
+void *state_grl();
+void *state_gll();
+void *state_glu();
+void *state_exit();
+
+
+
+
+int main(int argc, char **argv) {
+	ControllerState state = state_start;
+	Person person;
+	Person rPerson;
+	pid_t serverPid;
+	int chid;
+	int coid;
+	int rcvid;
+
+	printf("des_controller PID:%d \n", getpid());
+
+	if(argc != 2){
+		perror("Invalid number of arguments for the controller");
+		exit(EXIT_FAILIURE);
+	}
+
+	/*assign command line arg to server pid*/
+	serverPid = atoi(argv[1]);
+
+	chid = ChannelCreate(0);
+	if (chid == -1) {/*returns -1 on error*/
+		perror("Channel could not be created in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+	coid = ConnectAttach();
+	if(coid == -1){
+		perror("Channel could not connect in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+
+	while(1){
+		rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+		if(rcvid == -1){
+			perror("Error receiving the message in the controller");
+			exit(EXIT_FAILURE);
+		}
+
+		if(person.state_holder == INPUT_EXIT){
+			state = (*state_exit)();
+			break;
+		} else {
+			state = (ControllerState)(*state)();
+		}
+
+	}
+
+	ConnectDetach(coid);
+	ChannelDestroy(chid);
+    return EXIT_SUCCESS;
+}
+
+void *state_start(){
+	if(person.state_holder == INPUT_LS){
+		return state_ls;
+	} else if(person.state_holder == INPUT_RS){
+		return state_rs;
+	}
+	return 0;
+}
+
+void *state_ls(){
+	if(person.state_holder == INPUT_GLU){
+		/*MsgSend(coid)*/
+		return state_glu;
+	}
+    return state_ls;
+}
+
+void *state_rs(){
+	if(person.state_holder == INPUT_GRU){
+		return state_gru;
+	}
+    return state_rs;
+}
+
+void *state_ws(){
+	if(person.state_holder == INPUT_LC){
+		return state_lc;
+	} else if(person.state_holder == INPUT_RC){
+		return state_rc;
+	}
+    return state_ws;
+}
+
+void *state_lo(){
+	if(person.state_holder == INPUT_WS){
+		return state_ws;
+	} else if(person.state_holder == INPUT_LC){
+		return state_lc;
+	}
+    return state_lo;
+}
+
+void *state_ro(){
+	if(person.state_holder == INPUT_WS){
+		return state_ws;
+	} else if(person.state_holder == INPUT_RC){
+		return state_rc;
+	}
+    return state_ro;
+}
+
+void *state_lc(){
+	if(person.state_holder == INPUT_GLL){
+		if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+					perror("Error when using MsgSend in the controller to display in state_lc");
+					exit(EXIT_FAILURE);
+				}
+		return state_gll;
+	}
+    return state_lc;
+}
+
+void *state_rc(){
+	if(person.state_holder == INPUT_GRL){
+		if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+			perror("Error when using MsgSend in the controller to display in state_rc");
+			exit(EXIT_FAILURE);
+		}
+		return state_grl;
+	}
+    return 0;
+}
+
+void *state_gru(){
+	if(person.state_holder == INPUT_RO){
+		return state_ro;
+	}
+    return 0;
+}
+
+void *state_grl(){
+    return 0;
+}
+
+void *state_gll(){
+    return 0;
+}
+
+void *state_glu(){
+	if(person.state_holder == INPUT_LO){
+		if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+			perror("Error when using MsgSend in the controller to display in state_glu");
+			exit(EXIT_FAILURE);
+		}
+		return state_ws;
+	}
+    return 0;
+}
+
+void *state_exit(){
+	if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+		perror("Error when using MsgSend in the controller to display in state_exit");
+		exit(EXIT_FAILURE);
+	}
+    return 0;
+}

@@ -1,0 +1,283 @@
+#include "des.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <process.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <limits.h>
+#include <sys/neutrino.h>
+#include <sys/netmgr.h>
+
+void *state_start();
+void *state_ls();
+void *state_rs();
+void *state_ws();
+void *state_lo();
+void *state_ro();
+void *state_lc();
+void *state_rc();
+void *state_gru();
+void *state_grl();
+void *state_gll();
+void *state_glu();
+void *state_exit();
+
+ControllerState state = state_start;
+Person person;
+Person rPerson;
+pid_t serverPid;
+int chid;
+int coid;
+int rcvid;
+int dir;
+
+
+int main(int argc, char **argv) {
+
+	printf("des_controller PID:%d \n", getpid());
+
+	if (argc != 2) {
+		perror("Invalid number of arguments for the controller");
+		exit(EXIT_FAILURE);
+	}
+
+	/*get display's PID from command line arguments*/
+	serverPid = atoi(argv[1]);
+
+	/*Create a communication channel*/
+	chid = ChannelCreate(0);
+	if (chid == -1) {/*returns -1 on error*/
+		perror("Channel could not be created in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+	/*Create a connection to a communication channel*/
+	coid = ConnectAttach(ND_LOCAL_NODE, serverPid, 1, _NTO_SIDE_CHANNEL, 0);
+	if (coid == -1) {
+		perror("Channel could not connect in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+	while (1) {/*infinite loop*/
+		/*Call MsgReceive to receive a person object from des_inputs*/
+		rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+		if (rcvid == -1) {/*If there is an error*/
+			perror("Error receiving the message in the controller");
+			exit(EXIT_FAILURE);
+		}
+
+		if (person.state_holder == INPUT_EXIT) {
+			state = (*state_exit)();
+			break;
+		} else {
+			state = (ControllerState) (*state)();
+		}
+
+	}
+
+	ConnectDetach(coid);
+	ChannelDestroy(chid);
+	return EXIT_SUCCESS;
+}
+
+void *state_start() {/*STATE 0*/
+	if (person.state_holder == INPUT_LS) {
+		dir = 1;
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_start for LS");
+			exit(EXIT_FAILURE);
+		}
+		return state_ls;
+	} else if (person.state_holder == INPUT_RS) {
+		dir = 2;
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_start for RS");
+			exit(EXIT_FAILURE);
+		}
+		return state_rs;
+	}
+	return state_start;
+}
+
+void *state_ls() {
+	if (person.state_holder == INPUT_GLU) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+						== -1) {
+					perror(
+							"Error when using MsgSend in the controller to display in state_ls");
+					exit(EXIT_FAILURE);
+				}
+		return state_glu;
+	}
+	return state_ls;
+}
+
+void *state_rs() {
+	if (person.state_holder == INPUT_GRU) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+						== -1) {
+					perror(
+							"Error when using MsgSend in the controller to display in state_rs");
+					exit(EXIT_FAILURE);
+			}
+		return state_gru;
+	}
+	return state_rs;
+}
+
+void *state_ws() {
+	if (person.state_holder == INPUT_LC) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+						== -1) {
+					perror(
+							"Error when using MsgSend in the controller to display in state_ws for lc input");
+					exit(EXIT_FAILURE);
+				}
+		return state_lc;
+	} else if (person.state_holder == INPUT_RC) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_ws for rc input");
+			exit(EXIT_FAILURE);
+		}
+		return state_rc;
+	}
+	return state_ws;
+}
+
+void *state_lo() {
+	if (person.state_holder == INPUT_WS) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_lo for ws input");
+			exit(EXIT_FAILURE);
+		}
+		return state_ws;
+	} else if (person.state_holder == INPUT_LC) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_lo for lc input");
+			exit(EXIT_FAILURE);
+		}
+		return state_lc;
+	}
+	return state_lo;
+}
+
+void *state_ro() {
+	if (person.state_holder == INPUT_WS) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+					== -1) {
+				perror(
+						"Error when using MsgSend in the controller to display in state_ro for ws input");
+				exit(EXIT_FAILURE);
+			}
+		return state_ws;
+	} else if (person.state_holder == INPUT_RC) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+					== -1) {
+				perror(
+						"Error when using MsgSend in the controller to display in state_ro for rc input");
+				exit(EXIT_FAILURE);
+			}
+		return state_rc;
+	}
+	return state_ro;
+}
+
+void *state_lc() {
+	if (person.state_holder == INPUT_GLL) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_lc");
+			exit(EXIT_FAILURE);
+		}
+		return state_gll;
+	}
+	return state_lc;
+}
+
+void *state_rc() {
+	if (person.state_holder == INPUT_GRL) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_rc");
+			exit(EXIT_FAILURE);
+		}
+		return state_grl;
+	}
+	return state_rc;
+}
+
+void *state_gru() {
+	if (person.state_holder == INPUT_RO) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+					== -1) {
+				perror(
+						"Error when using MsgSend in the controller to display in state_gru");
+				exit(EXIT_FAILURE);
+			}
+		return state_ro;
+	}
+	return state_gru;
+}
+
+void *state_grl() {
+	return 0;
+}
+
+void *state_gll() {
+	if (dir == 1) {
+		if (person.state_holder == INPUT_GRU) {
+			if (MsgSend(coid, &person, sizeof(person), &rPerson,
+					sizeof(rPerson)) == -1) {
+				perror(
+						"Error when using MsgSend in the controller to display in state_glu");
+				exit(EXIT_FAILURE);
+			}
+			return state_gru;
+		}
+	} else if (dir == 2) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_glu");
+			exit(EXIT_FAILURE);
+		}
+		return state_start;
+	}
+	return state_gll;
+}
+
+void *state_glu() {
+	if (person.state_holder == INPUT_LO) {
+		if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_glu");
+			exit(EXIT_FAILURE);
+		}
+		return state_ws;
+	}
+	return state_glu;
+}
+
+void *state_exit() {
+	if (MsgSend(coid, &person, sizeof(person), &rPerson, sizeof(rPerson))
+				== -1) {
+			perror(
+					"Error when using MsgSend in the controller to display in state_exit");
+			exit(EXIT_FAILURE);
+		}
+	return state_exit;
+}

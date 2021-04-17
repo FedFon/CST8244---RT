@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "des.h"
+
+#include <string.h>
+
+
+void *state_start();
+void *state_ls();
+void *state_rs();
+void *state_ws();
+void *state_lo();
+void *state_ro();
+void *state_lc();
+void *state_rc();
+void *state_gru();
+void *state_grl();
+void *state_gll();
+void *state_glu();
+void *state_exit();
+
+
+
+
+int main(int argc, char **argv) {
+	ControllerState state = state_start;
+	Person person;
+	pid_t serverPid;
+	int chid;
+	int coid;
+	int rcvid;
+
+	printf("des_controller PID:%d \n", getpid());
+
+	if(argc != 2){
+		perror("Invalid number of arguments for the controller");
+		exit(EXIT_FAILIURE);
+	}
+
+	/*assign command line arg to server pid*/
+	serverPid = atoi(argv[1]);
+
+	chid = ChannelCreate(0);
+	if (chid == -1) {/*returns -1 on error*/
+		perror("Channel could not be created in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+	coid = ConnectAttach();
+	if(coid == -1){
+		perror("Channel could not connect in the controller");
+		exit(EXIT_FAILURE);
+	}
+
+
+	while(1){
+		rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+		if(rcvid == -1){
+			perror("Error receiving the message in the controller");
+			exit(EXIT_FAILURE);
+		}
+
+		if(person.state_holder == INPUT_EXIT){
+			state = (*state_exit)();
+			break;
+		} else {
+			state = (ControllerState)(*state)();
+		}
+
+	}
+
+    return EXIT_SUCCESS;
+}
+
+void *state_start(){
+return 0;
+}
+
+void *state_ls(){
+    return state_ls;
+}
+
+void *state_rs(){
+    return state_rs;
+}
+
+void *state_ws(){
+    return state_ws;
+}
+
+void *state_lo(){
+    return state_lo;
+}
+
+void *state_ro(){
+    return state_ro;
+}
+
+void *state_lc(){
+    return state_lc;
+}
+
+void *state_rc(){
+    return 0;
+}
+
+void *state_gru(){
+    return 0;
+}
+
+void *state_grl(){
+    return 0;
+}
+
+void *state_gll(){
+    return 0;
+}
+
+void *state_glu(){
+    return 0;
+}
+
+void *state_exit(){
+    return 0;
+}

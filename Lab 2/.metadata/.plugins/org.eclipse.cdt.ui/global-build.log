@@ -1,0 +1,90 @@
+14:37:56 **** Clean-only build of configuration x86_64-debug for project lab2 ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+14:38:04 **** Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+14:38:16 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:44:38 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:44:48 **** Clean-only build of configuration x86_64-debug for project lab2 ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+14:44:52 **** Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+14:44:55 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:25:03 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:25:11 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:30:14 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:36:47 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+build/x86_64-debug/src/lab2.o: In function `main':
+D:\QNX\Workspaces\cst8244_lab2.ws\lab2/src/lab2.c:17: undefined reference to `sigusr1_handler'
+D:\QNX\Workspaces\cst8244_lab2.ws\lab2/src/lab2.c:23: undefined reference to `sigusr2_hanlder'
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/bin/x86_64-pc-nto-qnx7.0.0-ld caught signal 1
+make: *** [build/x86_64-debug/lab2] Error 1
+Makefile:60: recipe for target 'build/x86_64-debug/lab2' failed
+15:38:29 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:38:32 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:40:36 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:40:41 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:41:11 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:41:12 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:42:07 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:42:16 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:50:24 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:50:31 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:51:31 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:51:40 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+15:54:20 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/lab2.d,-MT,build/x86_64-debug/src/lab2.o -o build/x86_64-debug/src/lab2.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/lab2.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/lab2   build/x86_64-debug/src/lab2.o  
+15:54:23 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.

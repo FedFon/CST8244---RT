@@ -1,0 +1,59 @@
+/*
+ ** fork.c -- demonstrates usage of fork() and wait()
+ **
+ ** Read:	http://beej.us/guide/bgipc/html/single/bgipc.html#fork
+ ** Source:	http://beej.us/guide/bgipc/examples/fork1.c
+ **
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main(void) {
+
+	pid_t pid;
+
+	int rv;
+	int numChildren = 0;
+
+	printf("Enter the number of children:\n");
+	scanf("%d", &numChildren);
+	printf("%d\n", numChildren);
+
+	printf("PID = %d: Parent running...\n", getpid());
+
+	pid = fork();
+
+	if(pid < 0){
+		perror("fork"); /* something went wrong */
+		exit(1); /* parent exits */
+	} else if(pid == 0){
+		printf("PID = %d: Child running...\n", getpid());
+		printf("PID = %d: Child exiting.\n", getpid());
+		exit(rv);
+
+	} else {
+		wait(&rv);
+		printf("PID = %d: Children finished, parent exiting\n", getpid());
+	}
+	/*
+	switch (pid = fork()) {
+
+	case -1:
+
+
+
+	case 0:
+
+
+	default:
+
+
+	}*/
+	return 0;
+}
+

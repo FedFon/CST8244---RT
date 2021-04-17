@@ -1,0 +1,55 @@
+/*
+ ** sigint.c -- grabs SIGINT
+ *
+ * Read:	http://beej.us/guide/bgipc/html/single/bgipc.html#signals
+ * Source:	http://beej.us/guide/bgipc/examples/sigint.c
+ *
+ * Modified by: hurdleg@algonquincollege.com
+ *
+ * Usage:
+ *  From Momentics IDE, run program; notice PID; enter some text, but don't hit the enter key
+ *  At Neutrino prompt, issue the command: kill -s SIGINT <PID>
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <signal.h>
+
+void sigusr_handler();
+
+volatile sig_atomic_t usr1Happened = 0;
+/*******************************************************************************
+ * main( )
+ ******************************************************************************/
+int main(void) {
+
+	struct sigaction sa;/*sigaction struct*/
+
+	sa.sa_handler = sigusr_handler;/*setting handler*/
+	 //sa.sa_flags = 0; or SA_RESTART
+	sigemptyset(&sa.sa_mask);/*remove all signals*/
+
+	sigaction(SIGUSR1,&sa,NULL);/*installing signal SIGUSR1 to handler*/
+
+	printf("PID = %d: Running...\n", getpid());/*inform user*/
+
+	for(;;){/*infinite loop*/
+		if(usr1Happened == 1){/*signal passed*/
+			printf("PID = %d: Received USR1.\n", getpid());/*inform user*/
+			break;/*exit loop*/
+		}
+	}
+
+	printf("PID = %d: Exiting.\n", getpid());/*inform user*/
+
+
+
+	return 0;
+}
+
+void sigusr_handler() {/*handler just sets usrHappened to 1*/
+	usr1Happened = 1;
+}

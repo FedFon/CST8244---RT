@@ -1,0 +1,79 @@
+20:51:41 **** Clean-only build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+20:51:54 **** Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+21:07:29 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partA_sighandler.d,-MT,build/x86_64-debug/src/partA_sighandler.o -o build/x86_64-debug/src/partA_sighandler.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partA_sighandler.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partA_sighandler   build/x86_64-debug/src/partA_sighandler.o  
+21:30:56 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:31:00 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:35:54 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:37:09 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:38:00 **** Incremental Build of configuration x86_64-debug for project partA_sighandler ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:39:09 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+src/partB_sigproc.c: In function 'main':
+src/partB_sigproc.c:43:2: error: 'waitNumber' undeclared (first use in this function)
+  waitNumber = numChildren;
+  ^
+src/partB_sigproc.c:43:2: note: each undeclared identifier is reported only once for each function it appears in
+src/partB_sigproc.c:36:6: warning: unused variable 'x' [-Wunused-variable]
+  int x = 0;
+      ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/partB_sigproc.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/partB_sigproc.o' failed
+21:39:40 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+21:39:49 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:41:43 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:49:46 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+21:52:16 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:53:42 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/partB_sigproc.d,-MT,build/x86_64-debug/src/partB_sigproc.o -o build/x86_64-debug/src/partB_sigproc.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/partB_sigproc.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/partB_sigproc   build/x86_64-debug/src/partB_sigproc.o  
+21:53:46 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:54:38 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:54:39 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:57:17 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:00:16 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:01:37 **** Incremental Build of configuration x86_64-debug for project partB_sigproc ****
+make -j6 all 
+make: Nothing to be done for 'all'.

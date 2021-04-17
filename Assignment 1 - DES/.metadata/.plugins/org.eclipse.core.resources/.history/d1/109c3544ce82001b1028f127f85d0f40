@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <process.h>
+#include <sys/neutrino.h>
+#include <sys/netmgr.h>
+#include <string.h>
+#include "D:\QNX\Workspaces\cst8244_assign1\des_controller\des.h"
+/*#include "../../des_controller/src/des.h"*/
+
+int main(int argc, char **argv) {
+	Person person;
+	int coid;
+	char desEvent[12];
+	int personId;
+	int weight;
+
+	/*check right amount of command line arguments*/
+	if (argc != 1) {
+		perror("Not a valid amount of arguments");
+		exit(EXIT_FAILURE);
+	}
+
+	/*assign command line arg to server pid*/
+	pid_t serverPid = atoi(argv[1]);
+
+	/*call ConnectAttach() to establish a connection to the controller*/
+	coid = ConnectAttach(ND_LOCAL_NODE, serverPid, 1, _NTO_SIDE_CHANNEL, 0);
+	if (coid == -1) {
+		perror("Error during ConnectAttach()");
+		exit(EXIT_FAILURE);
+	}
+
+	printf("des_inputs process ID: %d \n", getpid());/*display thread-waker process ID*/
+
+	while (1) {
+		printf(
+				"Enter the device (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc =left closed, rc = right closed , gru = guard right unlock, grl = guard right lock, gll=guard left lock,glu = guard left unlock)\n");
+		scanf("%s", &desEvent);
+		if (strcmp(desEvent, "ls") == 0) {
+			printf("Enter person ID: \n");
+			scanf("%d", &personId);
+			person.person_id = personId;
+			person.direction = 0;
+			person.state_holder = INPUT_LS;
+		} else if (strcmp(desEvent, "rs") == 0) {
+			printf("Enter person ID: \n");
+			scanf("%d", &personId);
+			person.person_id = personId;
+			person.direction = 1;
+			person.state_holder = INPUT_RS;
+		} else if (strcmp(desEvent, "ws") == 0) {
+			printf("Enter weight: \n");
+			scanf("%d", &weight);
+			person.weight = weight;
+		} else if(strcmp(desEvent, "lo") == 0){
+			person.state_holder = INPUT_LO;
+		} else if (strcmp(desEvent, "ro") == 0){
+			person.state_holder = INPUT_RO;
+		} else if (strcmp(desEvent, "lc") == 0){
+			person.state_holder = INPUT_LC;
+		} else if (strcmp(desEvent, "rc") == 0){
+			person.state_holder = INPUT_RC;
+		} else if (strcmp(desEvent, "gru") == 0){
+			person.state_holder = INPUT_GRU;
+		} else if (strcmp(desEvent, "grl") == 0){
+			person.state_holder = INPUT_GRL;
+		} else if (strcmp(desEvent, "gll") == 0){
+			person.state_holder = INPUT_GLL;
+		} else if (strcmp(desEvent, "glu") == 0){
+			person.state_holder = INPUT_GLU;
+		}else if (strcmp(desEvent, "exit") == 0) {
+			printf("Exiting");
+			break;
+		}
+		person.state_holder = desEvent;
+		if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+			perror("Error during the MsgSend()");
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	ConnectDetach(coid);
+	return EXIT_SUCCESS;
+}

@@ -1,0 +1,78 @@
+/*
+ ** fork.c -- demonstrates usage of fork() and wait()
+ **
+ ** Read:	http://beej.us/guide/bgipc/html/single/bgipc.html#fork
+ ** Source:	http://beej.us/guide/bgipc/examples/fork1.c
+ **
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <signal.h>
+
+void sigusr_handler();
+
+volatile sig_atomic_t usr1Happened = 0;
+
+int main(void) {
+
+	struct sigaction sa;/*sigaction struct*/
+
+	sa.sa_handler = sigusr_handler;/*setting handler*/
+	sa.sa_flags = 0; /*or SA_RESTART*/
+	sigemptyset(&sa.sa_mask);/*remove all signals*/
+
+	sigaction(SIGUSR1, &sa, NULL);/*installing signal SIGUSR1 to handler*/
+
+
+	int x = 0;
+	int numChildren = 0;
+
+	printf("Enter the number of children:\n");
+	scanf("%d", &numChildren);
+
+	x = numChildren;
+
+	pid_t pid;
+
+	printf("PID = %d: Parent running...\n", getpid());
+
+	while(numChildren != 0){
+		numChildren -= 1;
+
+		pid = fork();
+
+			if (pid < 0) {
+				perror("fork"); /* something went wrong */
+				exit(1); /* parent exits */
+			} else if (pid == 0) {
+					printf("PID = %d: Child running...\n", getpid());
+					for (;;) {
+						if (usr1Happened == 1) {\
+							printf("PID = %d: Child received USR1.\n", getpid());
+							break;
+						}
+					}
+					exit(rv);
+
+				}
+	}
+
+	while(x != 0){
+		int wait = wait(NULL);
+		if(a>0){
+			--x;
+		}
+	}
+
+	printf("PID = : Children finished, parent exiting.\n", getpid());
+	return 0;
+	}
+
+void sigusr_handler() {/*handler just sets usrHappened to 1*/
+	usr1Happened = 1;
+}

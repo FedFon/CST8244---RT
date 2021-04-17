@@ -1,0 +1,91 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/iofunc.h>
+#include <sys/dispatch.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <errno.h>
+
+ #define MY_PULSE_CODE   _PULSE_CODE_MINAVAIL
+
+typedef union{
+	struct _pulse pulse;
+	char msg[255];
+} my_message_t;
+
+int main(void) {
+	name_attach_t *attach_name; /*for name*/
+	FILE *file;
+	char fileStatus[25];
+	my_message_t message;
+	int rcvid;
+
+	attach_name = name_attach(NULL, "mydevice", 0);
+
+	if (attach_name == NULL) {/*if error*/
+		perror("Error in the name_attach()");
+		exit(EXIT_FAILURE);
+	}
+
+	file = fopen("/dev/local/mydevice", "r");
+
+	if(file == NULL){/*if there is an error opening the file*/
+		perror("Error opening the file.");
+		exit(EXIT_FAILURE);
+	}
+
+	fscanf(file, "%s %s", fileStatus, message.msg);
+
+	if(strcmp(status, "status") == 0){
+		printf("STATUS: %s", message.msg);
+	}
+
+	if(strcmp(message.msg, "closed")){
+		name_detach(attach_name, 0);
+		fclose(file);
+		exit(EXIT_SUCCESS);
+	}
+
+	fclose(file);
+
+	while(1){
+		rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+		if(rcvid == -1){
+			perror("There was an error in the MsgReceivePulse() in myController.c");
+			exit(EXIT_FAILURE);
+		}
+
+		if(rcvid == 0){
+			if(message.pulse.code == MY_PULSE_CODE){
+				printf("Small Integer: %d\n", msg.pulse.value.sival_int);
+
+				file = fopen("/dev/local/mydevice", "r");
+
+				if(file == NULL){/*if there is an error opening the file*/
+					perror("Error opening the file.");
+					exit(EXIT_FAILURE);
+				}
+
+				fscanf(file, "%s %s", fileStatus, message.msg);
+
+				if(strcmp(status, "status") == 0){
+					printf("STATUS: %s", message.msg);
+				}
+
+				if(strcmp(message.msg, "closed")){
+					name_detach(attach_name, 0);
+					fclose(file);
+					exit(EXIT_SUCCESS);
+				}
+
+			} else {
+				perror("Error with message.pule.code in myController.c");
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
+	name_detach(attach_name, 0);
+
+	return EXIT_SUCCESS;
+}

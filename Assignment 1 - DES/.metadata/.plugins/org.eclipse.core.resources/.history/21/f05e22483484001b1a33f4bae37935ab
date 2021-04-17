@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "D:\QNX\Workspaces\cst8244_assign1\des_controller\des.h"
+
+int main(void) {
+	printf("des_display process ID: %d \n", getpid());/*display thread-waker process ID*/
+	return EXIT_SUCCESS;
+}

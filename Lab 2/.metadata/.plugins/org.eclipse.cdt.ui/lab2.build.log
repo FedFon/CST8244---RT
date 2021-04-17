@@ -1,0 +1,6 @@
+15:54:23 **** Incremental Build of configuration x86_64-debug for project lab2 ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+
+15:54:23 Build Finished (took 106ms)
+

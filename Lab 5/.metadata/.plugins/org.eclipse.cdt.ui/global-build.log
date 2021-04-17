@@ -1,0 +1,521 @@
+12:22:56 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:51:51 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:12:2: error: unknown type name 'client_sent_t'
+  client_sent_t client_message;
+  ^
+src/calc_server.c:19:67: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid,&client_message,sizeof(client_message), &response, sizeof(response));
+                                                                   ^
+In file included from src/calc_server.c:7:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:19:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid,&client_message,sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:7:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:20:24: error: request for member 'operator' in something not a structure or union
+   switch(client_message.operator){
+                        ^
+src/calc_server.c:22:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand + client_message.right_hand;
+                                     ^
+src/calc_server.c:22:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand + client_message.right_hand;
+                                                                ^
+src/calc_server.c:25:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand - client_message.right_hand;
+                                     ^
+src/calc_server.c:25:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand - client_message.right_hand;
+                                                                ^
+src/calc_server.c:29:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand * client_message.right_hand;
+                                     ^
+src/calc_server.c:29:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand * client_message.right_hand;
+                                                                ^
+src/calc_server.c:32:37: error: request for member 'left_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                     ^
+src/calc_server.c:32:64: error: request for member 'right_hand' in something not a structure or union
+     response.answer = client_message.left_hand / client_message.right_hand;
+                                                                ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+12:02:44 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:20:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+                                                                     ^
+In file included from src/calc_server.c:7:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/calc_server.c:20:11: error: too many arguments to function 'MsgReceive'
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response, sizeof(response));
+           ^
+In file included from src/calc_server.c:7:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: declared here
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_server.o' failed
+make: *** [build/x86_64-debug/src/calc_server.o] Error 1
+12:04:01 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+src/calc_server.c: In function 'main':
+src/calc_server.c:20:69: warning: passing argument 4 of 'MsgReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   rcvid = MsgReceive(chid, &client_message, sizeof(client_message), &response);
+                                                                     ^
+In file included from src/calc_server.c:7:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:754:12: note: expected 'struct _msg_info64 *' but argument is of type 'server_response_t * {aka struct server_response *}'
+ extern int MsgReceive(int __chid, void *__msg, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+13:42:30 **** Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+src/calc_client.c:40:31: error: 'OK' undeclared (first use in this function)
+  if(msg_receive.statusCode != OK){
+                               ^
+src/calc_client.c:40:31: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+13:42:37 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+src/calc_client.c:40:31: error: 'OK' undeclared (first use in this function)
+  if(msg_receive.statusCode != OK){
+                               ^
+src/calc_client.c:40:31: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+13:42:37 **** Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+13:44:39 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:22: error: expected expression before 'char'
+  msg_send.operator = char(argv[3]);
+                      ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+13:44:50 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+13:45:23 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:45:24 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:45:40 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:48:15 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:04:05 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:04:06 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+14:04:49 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:05:00 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:11:00 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:11:02 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:11:08 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+14:11:10 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:15:17 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:15:19 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:15:25 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:22:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  msg_send.operator = argv[3];
+                    ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:15:28 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:17:08 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:17:09 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:19:02 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:19:09 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+14:19:12 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:20:52 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:20:55 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:22:24 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:22:27 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:23:30 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:23:32 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+14:24:21 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+14:24:22 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:48:50 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+21:48:54 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:07:04 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:07:06 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:07:36 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:07:39 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:09:04 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:09:06 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:10:39 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:10:41 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:40:11 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:54:6: error: 'response' undeclared (first use in this function)
+      response.statusCode = SRVR_INVALID_OPERATOR;
+      ^
+src/calc_client.c:54:6: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+22:40:13 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:54:6: error: 'response' undeclared (first use in this function)
+      response.statusCode = SRVR_INVALID_OPERATOR;
+      ^
+src/calc_client.c:54:6: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+22:40:16 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:54:6: error: 'response' undeclared (first use in this function)
+      response.statusCode = SRVR_INVALID_OPERATOR;
+      ^
+src/calc_client.c:54:6: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+22:40:21 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:54:6: error: 'response' undeclared (first use in this function)
+      response.statusCode = SRVR_INVALID_OPERATOR;
+      ^
+src/calc_client.c:54:6: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+22:40:25 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:54:6: error: 'response' undeclared (first use in this function)
+      response.statusCode = SRVR_INVALID_OPERATOR;
+      ^
+src/calc_client.c:54:6: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+22:40:42 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:40:44 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:41:37 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:41:39 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+22:48:16 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+22:48:18 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:25:38 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+23:25:42 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:25:48 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+23:25:51 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:28:24 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+23:28:25 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:30:20 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+23:30:23 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:33:00 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+23:33:01 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:12:52 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:33:3: error: too many arguments to function 'perror'
+   perror ("Expected result: error, as calc_client can't connect attached to processID %c\n", argv[1]);
+   ^
+In file included from src/calc_client.c:1:0:
+D:/QNX/qnx700/target/qnx7/usr/include/stdio.h:175:13: note: declared here
+ extern void perror(const char *__s);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/calc_client.o' failed
+make: *** [build/x86_64-debug/src/calc_client.o] Error 1
+00:13:37 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:13:44 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:14:29 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:14:31 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:15:28 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:15:30 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:15:48 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:15:50 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:16:58 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:17:00 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:17:33 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:17:34 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:32:51 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:32:52 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+00:33:01 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:33:07 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:40:36 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:40:38 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+00:40:49 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:16:6: warning: unused variable 'bool' [-Wunused-variable]
+  int bool = 0;
+      ^
+src/calc_client.c:15:9: warning: unused variable 'expected' [-Wunused-variable]
+  double expected;
+         ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+00:40:50 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:13:16 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+src/calc_client.c: In function 'main':
+src/calc_client.c:17:6: warning: unused variable 'bool' [-Wunused-variable]
+  int bool = 0;
+      ^
+src/calc_client.c:16:9: warning: unused variable 'expected' [-Wunused-variable]
+  double expected;
+         ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+01:13:16 **** Incremental Build of configuration x86_64-debug for project calc_server ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_server.d,-MT,build/x86_64-debug/src/calc_server.o -o build/x86_64-debug/src/calc_server.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_server.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_server   build/x86_64-debug/src/calc_server.o  
+01:15:36 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  
+01:15:42 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:15:48 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:25:24 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:25:37 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:25:41 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+01:26:28 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+13:36:13 **** Incremental Build of configuration x86_64-debug for project calc_client ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/calc_client.d,-MT,build/x86_64-debug/src/calc_client.o -o build/x86_64-debug/src/calc_client.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/calc_client.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/calc_client   build/x86_64-debug/src/calc_client.o  

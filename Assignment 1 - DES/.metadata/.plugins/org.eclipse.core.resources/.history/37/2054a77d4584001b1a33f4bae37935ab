@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/neutrino.h>
+
+
+#include "D:\QNX\Workspaces\cst8244_assign1\des_controller\src\des.h"
+
+int main(void) {
+
+//Phase 1
+
+	int chid;
+	int msgReceive;
+
+	Person pr;
+
+	if ((chid = ChannelCreate(0)) == -1) {//Call ChannelCreate() to create a channel for the controller process to attach
+
+		printf("Unable to create channel");
+
+		return EXIT_FAILURE;//On Failure: print error message and EXIT_FAILURE
+	}
+
+	printf("The display is running as PID: %d \n", getpid());//Print display's PID; controller needs to know this PID
+
+//Phase 2
+
+	while (1) {	//while true
+
+		//Call MsgReceive() to receive Display object from controller
+		if ((msgReceive = MsgReceive(chid, (void*) &pr, sizeof(pr), NULL))
+				== -1) {
+
+			printf("msgReviece error has occured \n");
+
+			return EXIT_FAILURE;
+		}
+
+		if (pr.state_holder == 1) {	//IF message == ID_SCAN THEN   left scan
+
+			printf("%s %d \n", outMessage[pr.msg_array], pr.person_id);
+
+			//	Print person has been scanned entering (or leaving) the building and display the person's ID
+		}
+
+		else if (pr.state_holder == 2) {	//custom made right scan
+
+			printf("%s %d \n", outMessage[pr.msg_array], pr.person_id);
+
+		}
+
+		else if (pr.state_holder == 3) {	//ELSE IF message = WEIGHED THEN
+
+			//Print person has been weighed and their weight
+			printf("%s\n", outMessage[pr.msg_array]);
+
+		}
+
+		else {	//ELSE // regular message
+
+			//Print message to Neutrino console (i.e. stdout)
+			printf("Invalid state \n");
+
+		}
+
+		if (pr.state_holder == 12) {	//IF message == EXIT THEN
+			break;	//break out of while loop
+		}
+
+	}	//end of while loop
+
+	//Phase 3
+
+	ChannelDestroy(chid);//Call ChannelDestroy() to destroy the channel that controller attaches to
+
+	return EXIT_SUCCESS;
+}

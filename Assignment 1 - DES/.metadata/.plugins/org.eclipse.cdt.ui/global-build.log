@@ -1,0 +1,1085 @@
+14:40:25 **** Build of configuration x86_64-debug for project des_display ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_display.d,-MT,build/x86_64-debug/src/des_display.o -o build/x86_64-debug/src/des_display.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_display.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_display   build/x86_64-debug/src/des_display.o  
+14:40:53 **** Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+14:41:11 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+18:44:32 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:29:3: error: too few arguments to function 'perror'
+   perror();
+   ^
+In file included from src/des_inputs.c:1:0:
+D:/QNX/qnx700/target/qnx7/usr/include/stdio.h:175:13: note: declared here
+ extern void perror(const char *__s);
+             ^
+src/des_inputs.c:41:21: error: assignment to expression with array type
+    person.direction = 0;
+                     ^
+src/des_inputs.c:47:21: error: assignment to expression with array type
+    person.direction = 1;
+                     ^
+src/des_inputs.c:58:23: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+   person.state_holder = desEvent;
+                       ^
+src/des_inputs.c:59:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+src/des_inputs.c:10:10: warning: unused variable 'msg_send' [-Wunused-variable]
+  Display msg_send;
+          ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+18:44:55 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:29:3: error: too few arguments to function 'perror'
+   perror();
+   ^
+In file included from src/des_inputs.c:1:0:
+D:/QNX/qnx700/target/qnx7/usr/include/stdio.h:175:13: note: declared here
+ extern void perror(const char *__s);
+             ^
+src/des_inputs.c:58:23: error: assignment to expression with array type
+   person.state_holder = desEvent;
+                       ^
+src/des_inputs.c:59:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+src/des_inputs.c:10:10: warning: unused variable 'msg_send' [-Wunused-variable]
+  Display msg_send;
+          ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+18:46:45 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:28:3: error: too few arguments to function 'perror'
+   perror();
+   ^
+In file included from src/des_inputs.c:1:0:
+D:/QNX/qnx700/target/qnx7/usr/include/stdio.h:175:13: note: declared here
+ extern void perror(const char *__s);
+             ^
+src/des_inputs.c:58:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+18:48:15 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:29:3: error: 'retrun' undeclared (first use in this function)
+   retrun EXIT_FAILURE;
+   ^
+src/des_inputs.c:29:3: note: each undeclared identifier is reported only once for each function it appears in
+In file included from src/des_inputs.c:2:0:
+src/des_inputs.c:29:10: error: expected ';' before numeric constant
+   retrun EXIT_FAILURE;
+          ^
+src/des_inputs.c:59:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+18:48:21 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:59:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+18:53:31 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:11:2: error: unknown type name 'Person'
+  Person person;
+  ^
+src/des_inputs.c:41:10: error: request for member 'person_id' in something not a structure or union
+    person.person_id = personId;
+          ^
+src/des_inputs.c:42:10: error: request for member 'direction' in something not a structure or union
+    person.direction = 0;
+          ^
+src/des_inputs.c:47:10: error: request for member 'person_id' in something not a structure or union
+    person.person_id = personId;
+          ^
+src/des_inputs.c:48:10: error: request for member 'direction' in something not a structure or union
+    person.direction = 1;
+          ^
+src/des_inputs.c:53:10: error: request for member 'weight' in something not a structure or union
+    person.weight = weight;
+          ^
+src/des_inputs.c:59:9: error: request for member 'state_holder' in something not a structure or union
+   person.state_holder = desEvent;
+         ^
+src/des_inputs.c:60:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+18:54:14 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:5:45: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller process ID: %d \n", getpid());/*display thread-waker process ID*/
+                                             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+18:54:27 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+18:54:29 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:04:45 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:04:53 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:05:02 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:05:08 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:11:2: error: unknown type name 'Person'
+  Person person;
+  ^
+src/des_inputs.c:41:10: error: invalid type argument of '->' (have 'int')
+    person->person_id = personId;
+          ^
+src/des_inputs.c:42:10: error: invalid type argument of '->' (have 'int')
+    person->direction = 0;
+          ^
+src/des_inputs.c:47:10: error: invalid type argument of '->' (have 'int')
+    person->person_id = personId;
+          ^
+src/des_inputs.c:48:10: error: invalid type argument of '->' (have 'int')
+    person->direction = 1;
+          ^
+src/des_inputs.c:53:10: error: invalid type argument of '->' (have 'int')
+    person->weight = weight;
+          ^
+src/des_inputs.c:59:9: error: invalid type argument of '->' (have 'int')
+   person->state_holder = desEvent;
+         ^
+src/des_inputs.c:60:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+19:09:43 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:41:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->person_id = personId;
+          ^
+src/des_inputs.c:42:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->direction = 0;
+          ^
+src/des_inputs.c:47:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->person_id = personId;
+          ^
+src/des_inputs.c:48:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->direction = 1;
+          ^
+src/des_inputs.c:53:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->weight = weight;
+          ^
+src/des_inputs.c:59:9: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+   person->state_holder = desEvent;
+         ^
+src/des_inputs.c:60:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+19:10:08 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:60:48: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   MsgSend(coid, &person, sizeof(person), NULL, NULL);
+                                                ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+19:51:05 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:50:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RS;
+                        ^
+src/des_inputs.c:56:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LO;
+                        ^
+src/des_inputs.c:58:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RO;
+                        ^
+src/des_inputs.c:60:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LC;
+                        ^
+src/des_inputs.c:62:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RC;
+                        ^
+src/des_inputs.c:64:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRU;
+                        ^
+src/des_inputs.c:66:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRL;
+                        ^
+src/des_inputs.c:68:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLL;
+                        ^
+src/des_inputs.c:70:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLU;
+                        ^
+src/des_inputs.c:76:51: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+                                                   ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+19:58:33 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:50:10: error: invalid type argument of '->' (have 'Person {aka struct <anonymous>}')
+    person->state_holder = INPUT_RS;
+          ^
+src/des_inputs.c:56:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LO;
+                        ^
+src/des_inputs.c:58:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RO;
+                        ^
+src/des_inputs.c:60:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LC;
+                        ^
+src/des_inputs.c:62:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RC;
+                        ^
+src/des_inputs.c:64:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRU;
+                        ^
+src/des_inputs.c:66:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRL;
+                        ^
+src/des_inputs.c:68:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLL;
+                        ^
+src/des_inputs.c:70:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLU;
+                        ^
+src/des_inputs.c:76:51: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+                                                   ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_inputs.o' failed
+make: *** [build/x86_64-debug/src/des_inputs.o] Error 1
+19:58:49 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:50:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RS;
+                        ^
+src/des_inputs.c:56:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LO;
+                        ^
+src/des_inputs.c:58:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RO;
+                        ^
+src/des_inputs.c:60:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LC;
+                        ^
+src/des_inputs.c:62:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RC;
+                        ^
+src/des_inputs.c:64:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRU;
+                        ^
+src/des_inputs.c:66:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRL;
+                        ^
+src/des_inputs.c:68:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLL;
+                        ^
+src/des_inputs.c:70:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLU;
+                        ^
+src/des_inputs.c:76:51: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+                                                   ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+19:59:58 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:50:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RS;
+                        ^
+src/des_inputs.c:56:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LO;
+                        ^
+src/des_inputs.c:58:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RO;
+                        ^
+src/des_inputs.c:60:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_LC;
+                        ^
+src/des_inputs.c:62:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_RC;
+                        ^
+src/des_inputs.c:64:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRU;
+                        ^
+src/des_inputs.c:66:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GRL;
+                        ^
+src/des_inputs.c:68:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLL;
+                        ^
+src/des_inputs.c:70:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = INPUT_GLU;
+                        ^
+src/des_inputs.c:76:51: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+                                                   ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+20:00:25 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:50:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_RS;
+                        ^
+src/des_inputs.c:56:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_LO;
+                        ^
+src/des_inputs.c:58:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_RO;
+                        ^
+src/des_inputs.c:60:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_LC;
+                        ^
+src/des_inputs.c:62:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_RC;
+                        ^
+src/des_inputs.c:64:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_GRU;
+                        ^
+src/des_inputs.c:66:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_GRL;
+                        ^
+src/des_inputs.c:68:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_GLL;
+                        ^
+src/des_inputs.c:70:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    person.state_holder = (int)INPUT_GLU;
+                        ^
+src/des_inputs.c:76:51: warning: passing argument 5 of 'MsgSend' makes integer from pointer without a cast [-Wint-conversion]
+   if(MsgSend(coid, &person, sizeof(person), NULL, NULL) == -1){
+                                                   ^
+In file included from src/des_inputs.c:4:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:738:13: note: expected '_Sizet {aka long unsigned int}' but argument is of type 'void *'
+ extern long MsgSend(int __coid, const void *__smsg, _Sizet __sbytes, void *__rmsg, _Sizet __rbytes);
+             ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+20:00:31 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+12:37:42 **** Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:3:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:38:38 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:3:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:40:19 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:40:40 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:42:42 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+12:42:43 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+12:42:43 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+12:42:48 **** Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:42:53 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:43:00 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:43:16 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:43:19 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c:1:17: fatal error: des.h: No such file or directory
+compilation terminated.
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:45:16 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:35:37: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller PID:%d \n", getpid());
+                                     ^
+src/des_controller.c:39:8: error: 'EXIT_FAILIURE' undeclared (first use in this function)
+   exit(EXIT_FAILIURE);
+        ^
+src/des_controller.c:39:8: note: each undeclared identifier is reported only once for each function it appears in
+src/des_controller.c:45:9: warning: implicit declaration of function 'ChannelCreate' [-Wimplicit-function-declaration]
+  chid = ChannelCreate(0);
+         ^
+src/des_controller.c:51:9: warning: implicit declaration of function 'ConnectAttach' [-Wimplicit-function-declaration]
+  coid = ConnectAttach();
+         ^
+src/des_controller.c:59:11: warning: implicit declaration of function 'MsgReceive' [-Wimplicit-function-declaration]
+   rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+           ^
+src/des_controller.c:74:2: warning: implicit declaration of function 'ConnectDetach' [-Wimplicit-function-declaration]
+  ConnectDetach(coid);
+  ^
+src/des_controller.c:75:2: warning: implicit declaration of function 'ChannelDestroy' [-Wimplicit-function-declaration]
+  ChannelDestroy(chid);
+  ^
+src/des_controller.c:30:8: warning: variable 'serverPid' set but not used [-Wunused-but-set-variable]
+  pid_t serverPid;
+        ^
+src/des_controller.c:29:9: warning: unused variable 'rPerson' [-Wunused-variable]
+  Person rPerson;
+         ^
+src/des_controller.c: In function 'state_start':
+src/des_controller.c:80:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LS){
+     ^
+src/des_controller.c: In function 'state_ls':
+src/des_controller.c:89:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLU){
+     ^
+src/des_controller.c: In function 'state_rs':
+src/des_controller.c:97:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRU){
+     ^
+src/des_controller.c: In function 'state_ws':
+src/des_controller.c:104:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LC){
+     ^
+src/des_controller.c: In function 'state_lo':
+src/des_controller.c:113:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_ro':
+src/des_controller.c:122:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_lc':
+src/des_controller.c:131:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLL){
+     ^
+src/des_controller.c:132:6: warning: implicit declaration of function 'MsgSend' [-Wimplicit-function-declaration]
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+      ^
+src/des_controller.c:132:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:132:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_rc':
+src/des_controller.c:142:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRL){
+     ^
+src/des_controller.c:143:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:143:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_gru':
+src/des_controller.c:153:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_RO){
+     ^
+src/des_controller.c: In function 'state_glu':
+src/des_controller.c:168:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LO){
+     ^
+src/des_controller.c:169:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:169:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_exit':
+src/des_controller.c:179:13: error: 'coid' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+             ^
+src/des_controller.c:179:20: error: 'person' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                    ^
+src/des_controller.c:179:44: error: 'rPerson' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:45:20 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:35:37: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller PID:%d \n", getpid());
+                                     ^
+src/des_controller.c:39:8: error: 'EXIT_FAILIURE' undeclared (first use in this function)
+   exit(EXIT_FAILIURE);
+        ^
+src/des_controller.c:39:8: note: each undeclared identifier is reported only once for each function it appears in
+src/des_controller.c:45:9: warning: implicit declaration of function 'ChannelCreate' [-Wimplicit-function-declaration]
+  chid = ChannelCreate(0);
+         ^
+src/des_controller.c:51:9: warning: implicit declaration of function 'ConnectAttach' [-Wimplicit-function-declaration]
+  coid = ConnectAttach();
+         ^
+src/des_controller.c:59:11: warning: implicit declaration of function 'MsgReceive' [-Wimplicit-function-declaration]
+   rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+           ^
+src/des_controller.c:74:2: warning: implicit declaration of function 'ConnectDetach' [-Wimplicit-function-declaration]
+  ConnectDetach(coid);
+  ^
+src/des_controller.c:75:2: warning: implicit declaration of function 'ChannelDestroy' [-Wimplicit-function-declaration]
+  ChannelDestroy(chid);
+  ^
+src/des_controller.c:30:8: warning: variable 'serverPid' set but not used [-Wunused-but-set-variable]
+  pid_t serverPid;
+        ^
+src/des_controller.c:29:9: warning: unused variable 'rPerson' [-Wunused-variable]
+  Person rPerson;
+         ^
+src/des_controller.c: In function 'state_start':
+src/des_controller.c:80:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LS){
+     ^
+src/des_controller.c: In function 'state_ls':
+src/des_controller.c:89:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLU){
+     ^
+src/des_controller.c: In function 'state_rs':
+src/des_controller.c:97:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRU){
+     ^
+src/des_controller.c: In function 'state_ws':
+src/des_controller.c:104:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LC){
+     ^
+src/des_controller.c: In function 'state_lo':
+src/des_controller.c:113:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_ro':
+src/des_controller.c:122:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_lc':
+src/des_controller.c:131:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLL){
+     ^
+src/des_controller.c:132:6: warning: implicit declaration of function 'MsgSend' [-Wimplicit-function-declaration]
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+      ^
+src/des_controller.c:132:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:132:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_rc':
+src/des_controller.c:142:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRL){
+     ^
+src/des_controller.c:143:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:143:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_gru':
+src/des_controller.c:153:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_RO){
+     ^
+src/des_controller.c: In function 'state_glu':
+src/des_controller.c:168:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LO){
+     ^
+src/des_controller.c:169:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:169:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_exit':
+src/des_controller.c:179:13: error: 'coid' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+             ^
+src/des_controller.c:179:20: error: 'person' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                    ^
+src/des_controller.c:179:44: error: 'rPerson' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:45:50 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:35:37: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller PID:%d \n", getpid());
+                                     ^
+src/des_controller.c:45:9: warning: implicit declaration of function 'ChannelCreate' [-Wimplicit-function-declaration]
+  chid = ChannelCreate(0);
+         ^
+src/des_controller.c:51:9: warning: implicit declaration of function 'ConnectAttach' [-Wimplicit-function-declaration]
+  coid = ConnectAttach();
+         ^
+src/des_controller.c:59:11: warning: implicit declaration of function 'MsgReceive' [-Wimplicit-function-declaration]
+   rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+           ^
+src/des_controller.c:74:2: warning: implicit declaration of function 'ConnectDetach' [-Wimplicit-function-declaration]
+  ConnectDetach(coid);
+  ^
+src/des_controller.c:75:2: warning: implicit declaration of function 'ChannelDestroy' [-Wimplicit-function-declaration]
+  ChannelDestroy(chid);
+  ^
+src/des_controller.c:30:8: warning: variable 'serverPid' set but not used [-Wunused-but-set-variable]
+  pid_t serverPid;
+        ^
+src/des_controller.c:29:9: warning: unused variable 'rPerson' [-Wunused-variable]
+  Person rPerson;
+         ^
+src/des_controller.c: In function 'state_start':
+src/des_controller.c:80:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LS){
+     ^
+src/des_controller.c:80:5: note: each undeclared identifier is reported only once for each function it appears in
+src/des_controller.c: In function 'state_ls':
+src/des_controller.c:89:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLU){
+     ^
+src/des_controller.c: In function 'state_rs':
+src/des_controller.c:97:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRU){
+     ^
+src/des_controller.c: In function 'state_ws':
+src/des_controller.c:104:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LC){
+     ^
+src/des_controller.c: In function 'state_lo':
+src/des_controller.c:113:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_ro':
+src/des_controller.c:122:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_lc':
+src/des_controller.c:131:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLL){
+     ^
+src/des_controller.c:132:6: warning: implicit declaration of function 'MsgSend' [-Wimplicit-function-declaration]
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+      ^
+src/des_controller.c:132:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:132:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_rc':
+src/des_controller.c:142:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRL){
+     ^
+src/des_controller.c:143:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:143:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_gru':
+src/des_controller.c:153:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_RO){
+     ^
+src/des_controller.c: In function 'state_glu':
+src/des_controller.c:168:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LO){
+     ^
+src/des_controller.c:169:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:169:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_exit':
+src/des_controller.c:179:13: error: 'coid' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+             ^
+src/des_controller.c:179:20: error: 'person' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                    ^
+src/des_controller.c:179:44: error: 'rPerson' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:46:00 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:35:37: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller PID:%d \n", getpid());
+                                     ^
+src/des_controller.c:45:9: warning: implicit declaration of function 'ChannelCreate' [-Wimplicit-function-declaration]
+  chid = ChannelCreate(0);
+         ^
+src/des_controller.c:51:9: warning: implicit declaration of function 'ConnectAttach' [-Wimplicit-function-declaration]
+  coid = ConnectAttach();
+         ^
+src/des_controller.c:59:11: warning: implicit declaration of function 'MsgReceive' [-Wimplicit-function-declaration]
+   rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+           ^
+src/des_controller.c:74:2: warning: implicit declaration of function 'ConnectDetach' [-Wimplicit-function-declaration]
+  ConnectDetach(coid);
+  ^
+src/des_controller.c:75:2: warning: implicit declaration of function 'ChannelDestroy' [-Wimplicit-function-declaration]
+  ChannelDestroy(chid);
+  ^
+src/des_controller.c:30:8: warning: variable 'serverPid' set but not used [-Wunused-but-set-variable]
+  pid_t serverPid;
+        ^
+src/des_controller.c:29:9: warning: unused variable 'rPerson' [-Wunused-variable]
+  Person rPerson;
+         ^
+src/des_controller.c: In function 'state_start':
+src/des_controller.c:80:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LS){
+     ^
+src/des_controller.c:80:5: note: each undeclared identifier is reported only once for each function it appears in
+src/des_controller.c: In function 'state_ls':
+src/des_controller.c:89:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLU){
+     ^
+src/des_controller.c: In function 'state_rs':
+src/des_controller.c:97:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRU){
+     ^
+src/des_controller.c: In function 'state_ws':
+src/des_controller.c:104:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LC){
+     ^
+src/des_controller.c: In function 'state_lo':
+src/des_controller.c:113:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_ro':
+src/des_controller.c:122:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_WS){
+     ^
+src/des_controller.c: In function 'state_lc':
+src/des_controller.c:131:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GLL){
+     ^
+src/des_controller.c:132:6: warning: implicit declaration of function 'MsgSend' [-Wimplicit-function-declaration]
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+      ^
+src/des_controller.c:132:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:132:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_rc':
+src/des_controller.c:142:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_GRL){
+     ^
+src/des_controller.c:143:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:143:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_gru':
+src/des_controller.c:153:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_RO){
+     ^
+src/des_controller.c: In function 'state_glu':
+src/des_controller.c:168:5: error: 'person' undeclared (first use in this function)
+  if(person.state_holder == INPUT_LO){
+     ^
+src/des_controller.c:169:14: error: 'coid' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+              ^
+src/des_controller.c:169:45: error: 'rPerson' undeclared (first use in this function)
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                             ^
+src/des_controller.c: In function 'state_exit':
+src/des_controller.c:179:13: error: 'coid' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+             ^
+src/des_controller.c:179:20: error: 'person' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                    ^
+src/des_controller.c:179:44: error: 'rPerson' undeclared (first use in this function)
+  if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+                                            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:47:12 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:35:37: warning: implicit declaration of function 'getpid' [-Wimplicit-function-declaration]
+  printf("des_controller PID:%d \n", getpid());
+                                     ^
+src/des_controller.c:45:9: warning: implicit declaration of function 'ChannelCreate' [-Wimplicit-function-declaration]
+  chid = ChannelCreate(0);
+         ^
+src/des_controller.c:51:9: warning: implicit declaration of function 'ConnectAttach' [-Wimplicit-function-declaration]
+  coid = ConnectAttach();
+         ^
+src/des_controller.c:59:11: warning: implicit declaration of function 'MsgReceive' [-Wimplicit-function-declaration]
+   rcvid = MsgReceive(chid, &person, sizeof(person), NULL);
+           ^
+src/des_controller.c:74:2: warning: implicit declaration of function 'ConnectDetach' [-Wimplicit-function-declaration]
+  ConnectDetach(coid);
+  ^
+src/des_controller.c:75:2: warning: implicit declaration of function 'ChannelDestroy' [-Wimplicit-function-declaration]
+  ChannelDestroy(chid);
+  ^
+src/des_controller.c: In function 'state_lc':
+src/des_controller.c:132:6: warning: implicit declaration of function 'MsgSend' [-Wimplicit-function-declaration]
+   if(MsgSend(coid, &person, sizeof(person),&rPerson,sizeof(rPerson))==-1){
+      ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+12:48:49 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:54:9: error: too few arguments to function 'ConnectAttach'
+  coid = ConnectAttach();
+         ^
+In file included from src/des_controller.c:9:0:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:721:12: note: declared here
+ extern int ConnectAttach(_Uint32t __nd, pid_t __pid, int __chid, unsigned __index, int __flags);
+            ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:50:22 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:54:23: error: 'ND_LOCAL_NODE' undeclared (first use in this function)
+  coid = ConnectAttach(ND_LOCAL_NODE, serverPid, 1, _NTO_SIDE_CHANNEL, 0);
+                       ^
+src/des_controller.c:54:23: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:50:44 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+14:40:20 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+14:40:23 **** Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+src/des_inputs.c: In function 'main':
+src/des_inputs.c:91:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(5);
+  ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+14:40:56 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+12:03:46 **** Incremental Build of configuration x86_64-debug for project des_inputs ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_inputs.d,-MT,build/x86_64-debug/src/des_inputs.o -o build/x86_64-debug/src/des_inputs.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_inputs.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_inputs   build/x86_64-debug/src/des_inputs.o  
+12:03:52 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:57:2: error: 'serverPid' undeclared (first use in this function)
+  serverPid = atoi(argv[1]);
+  ^
+src/des_controller.c:57:2: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+12:04:18 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:72:37: error: 'serverPid' undeclared (first use in this function)
+  coid = ConnectAttach(ND_LOCAL_NODE,serverPid,1,_NTO_SIDE_CHANNEL,0);
+                                     ^
+src/des_controller.c:72:37: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:04:27 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+src/des_controller.c: In function 'main':
+src/des_controller.c:72:37: error: 'serverPid' undeclared (first use in this function)
+  coid = ConnectAttach(ND_LOCAL_NODE,serverPid,1,_NTO_SIDE_CHANNEL,0);
+                                     ^
+src/des_controller.c:72:37: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/des_controller.o' failed
+make: *** [build/x86_64-debug/src/des_controller.o] Error 1
+12:05:23 **** Incremental Build of configuration x86_64-debug for project des_controller ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/des_controller.d,-MT,build/x86_64-debug/src/des_controller.o -o build/x86_64-debug/src/des_controller.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/des_controller.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/des_controller   build/x86_64-debug/src/des_controller.o  
+16:05:20 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+16:05:20 **** Clean-only build of configuration x86_64-debug for project des_display ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+16:05:20 **** Clean-only build of configuration x86_64-debug for project des_inputs ****
+make -j6 clean 
+rm -fr build/x86_64-debug

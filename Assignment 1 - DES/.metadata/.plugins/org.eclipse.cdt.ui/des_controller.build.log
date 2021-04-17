@@ -1,0 +1,6 @@
+16:05:20 **** Clean-only build of configuration x86_64-debug for project des_controller ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+
+16:05:20 Build Finished (took 213ms)
+

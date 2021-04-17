@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "des.h"
+
+#include <string.h>
+
+
+void *state_start();
+void *state_ls();
+void *state_rs();
+void *state_ws();
+void *state_lo();
+void *state_ro();
+void *state_lc();
+void *state_rc();
+void *state_gru();
+void *state_grl();
+void *state_gll();
+void *state_glu();
+void *state_exit();
+
+
+
+
+int main(int argc, char **argv) {
+	printf("des_controller PID:%d \n", getpid());
+    return EXIT_SUCCESS;
+}
+
+void *state_start(){
+return 0;
+}
+
+void *state_ls(){
+    return 0;
+}
+
+void *state_rs(){
+    return 0;
+}
+
+void *state_ws(){
+    return 0;
+}
+
+void *state_lo(){
+    return 0;
+}
+
+void *state_ro(){
+    return 0;
+}
+
+void *state_lc(){
+    return 0;
+}
+
+void *state_rc(){
+    return 0;
+}
+
+void *state_gru(){
+    return 0;
+}
+
+void *state_grl(){
+    return 0;
+}
+
+void *state_gll(){
+    return 0;
+}
+
+void *state_glu(){
+    return 0;
+}
+
+void *state_exit(){
+    return 0;
+}

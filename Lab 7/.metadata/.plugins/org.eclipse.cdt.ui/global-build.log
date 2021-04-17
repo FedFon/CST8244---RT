@@ -1,0 +1,349 @@
+15:03:51 **** Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+15:04:26 **** Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+23:36:12 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:40:12: error: 'status' undeclared (first use in this function)
+  if(strcmp(status, "status") == 0){
+            ^
+src/myController.c:40:12: note: each undeclared identifier is reported only once for each function it appears in
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/myController.c:61:35: error: 'msg' undeclared (first use in this function)
+     printf("Small Integer: %d\n", msg.pulse.value.sival_int);
+                                   ^
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/myController.o' failed
+make: *** [build/x86_64-debug/src/myController.o] Error 1
+23:36:13 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+23:37:42 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+src/myController.c:72:15: error: 'status' undeclared (first use in this function)
+     if(strcmp(status, "status") == 0){
+               ^
+src/myController.c:72:15: note: each undeclared identifier is reported only once for each function it appears in
+cc: D:/QNX/qnx700/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx7.0.0/5.4.0/cc1 caught signal 1
+Makefile:55: recipe for target 'build/x86_64-debug/src/myController.o' failed
+make: *** [build/x86_64-debug/src/myController.o] Error 1
+23:37:43 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:37:56 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+23:37:56 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:38:27 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:32: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = (int)MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                                ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+23:38:27 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:44:36 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+23:45:09 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+23:55:58 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+23:56:01 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+18:57:48 **** Incremental Build of configuration x86_64-coverage for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-coverage/src/myController.d,-MT,build/x86_64-coverage/src/myController.o -o build/x86_64-coverage/src/myController.o  -Wall -fmessage-length=0 -g -O0 -ftest-coverage -fprofile-arcs -nopipe -Wc,-auxbase-strip,build/x86_64-coverage/src/myController.o  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-coverage/myController -ftest-coverage -fprofile-arcs  build/x86_64-coverage/src/myController.o  
+18:57:52 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+18:58:54 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+18:59:02 **** Incremental Build of configuration x86_64-coverage for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:11:43 **** Incremental Build of configuration x86_64-coverage for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-coverage/src/myController.d,-MT,build/x86_64-coverage/src/myController.o -o build/x86_64-coverage/src/myController.o  -Wall -fmessage-length=0 -g -O0 -ftest-coverage -fprofile-arcs -nopipe -Wc,-auxbase-strip,build/x86_64-coverage/src/myController.o  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-coverage/myController -ftest-coverage -fprofile-arcs  build/x86_64-coverage/src/myController.o  
+19:11:44 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+19:11:47 **** Clean-only build of configuration x86_64-coverage for project myController ****
+make -j6 clean 
+rm -fr build/x86_64-coverage
+19:11:47 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+19:11:50 **** Build of configuration x86_64-coverage for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-coverage/src/myController.d,-MT,build/x86_64-coverage/src/myController.o -o build/x86_64-coverage/src/myController.o  -Wall -fmessage-length=0 -g -O0 -ftest-coverage -fprofile-arcs -nopipe -Wc,-auxbase-strip,build/x86_64-coverage/src/myController.o  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-coverage/myController -ftest-coverage -fprofile-arcs  build/x86_64-coverage/src/myController.o  
+19:11:51 **** Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+19:11:58 **** Incremental Build of configuration x86_64-coverage for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+19:12:05 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:39:15 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+11:39:19 **** Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+11:39:32 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:39:33 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:40:15 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+11:40:15 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:40:20 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+11:40:25 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+12:13:51 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+12:13:58 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+12:16:49 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+12:16:56 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+17:51:15 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+17:51:18 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+17:51:23 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+17:51:30 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+17:54:50 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+17:54:52 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+18:04:33 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+src/myController.c: In function 'main':
+src/myController.c:53:27: warning: passing argument 1 of 'MsgReceivePulse' makes integer from pointer without a cast [-Wint-conversion]
+   rcvid = MsgReceivePulse(attach_name, &message.msg, sizeof(message.msg), NULL);
+                           ^
+In file included from D:/QNX/qnx700/target/qnx7/usr/include/sys/iomsg.h:47:0,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/resmgr.h:38,
+                 from D:/QNX/qnx700/target/qnx7/usr/include/sys/iofunc.h:61,
+                 from src/myController.c:3:
+D:/QNX/qnx700/target/qnx7/usr/include/sys/neutrino.h:758:12: note: expected 'int' but argument is of type 'name_attach_t * {aka struct _name_attach *}'
+ extern int MsgReceivePulse(int __chid, void *__pulse, _Sizet __bytes, struct _msg_info *__info);
+            ^
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+18:04:35 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+20:36:48 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+20:36:48 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+20:37:09 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+20:38:10 **** Incremental Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+20:38:16 **** Incremental Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+make: Nothing to be done for 'all'.
+21:00:51 **** Clean-only build of configuration x86_64-debug for project myController ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+21:00:51 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+21:00:54 **** Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+21:00:54 **** Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  
+21:15:21 **** Clean-only build of configuration x86_64-debug for project myController ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+21:15:21 **** Clean-only build of configuration x86_64-debug for project myDevice ****
+make -j6 clean 
+rm -fr build/x86_64-debug
+21:15:40 **** Build of configuration x86_64-debug for project myController ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myController.d,-MT,build/x86_64-debug/src/myController.o -o build/x86_64-debug/src/myController.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myController.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myController   build/x86_64-debug/src/myController.o  
+21:15:40 **** Build of configuration x86_64-debug for project myDevice ****
+make -j6 all 
+qcc -Vgcc_ntox86_64 -c -Wp,-MMD,build/x86_64-debug/src/myDevice.d,-MT,build/x86_64-debug/src/myDevice.o -o build/x86_64-debug/src/myDevice.o  -Wall -fmessage-length=0 -g -O0 -fno-builtin  src/myDevice.c
+qcc -Vgcc_ntox86_64 -o build/x86_64-debug/myDevice   build/x86_64-debug/src/myDevice.o  

@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/neutrino.h>
+#include <sys/netmgr.h>
+#include <unistd.h>
+
+#include "D:\QNX\Workspaces\cst8244_assign1\des_controller\src\des.h"
+
+int main(int argc, char **argv) {
+
+
+		pid_t serverPid; /* controller pid storage var */
+		int coid; /* return from connect attach  */
+		Person person; /* Person structure defined in des.h */
+		Display display; /* response from the controller, struct defined in des.h */
+
+
+		int personId=0;
+		int weight=0;
+
+		//Phase I
+
+		if (argc != 2) {//Get controller's PID from command-line arguments.
+				perror("Not a valid amount of arguments");
+				exit(EXIT_FAILURE);
+			}//On Failure: print usage message and EXIT_FAILURE
+
+		 serverPid = atoi(argv[1]);
+
+		 printf("inputs server connection to controoller is %d \n",serverPid);
+
+
+
+		 coid = ConnectAttach(ND_LOCAL_NODE, serverPid, 1, _NTO_SIDE_CHANNEL, 0);//Call ConnectAttach() to attach to controller's channel
+
+
+		 if (coid == -1) {
+				perror("Error during ConnectAttach()");
+				exit(EXIT_FAILURE);
+			}//On Failure: print error message and EXIT_FAILURE
+
+
+
+			printf("des_inputs process ID: %d \n", getpid());/*display thread-waker process ID*/
+
+
+		//Phase II
+		while(1){//while( TRUE )
+
+
+			char desEvent[12];
+			//Prompt User for DES input-event (printf())
+			printf(
+			"Enter the device (ls= left scan, rs= right scan, ws= weight scale, lo =left open, ro=right open, lc =left closed, rc = right closed , gru = guard right unlock, grl = guard right lock, gll=guard left lock,glu = guard left unlock)\n");
+				scanf("%s", &desEvent);
+
+
+				if (strcmp(desEvent, "ls") == 0) {
+							printf("Enter person ID: \n");
+							scanf("%d", &personId);
+							person.person_id = personId;
+							person.direction = 0;
+							person.state_holder = (int)INPUT_LS;
+
+						} else if (strcmp(desEvent, "rs") == 0) {
+							printf("Enter person ID: \n");
+							scanf("%d", &personId);
+							person.person_id = personId;
+							person.direction = 1;
+							person.state_holder = (int)INPUT_RS;
+						} else if (strcmp(desEvent, "ws") == 0) {
+							printf("Enter weight: \n");
+							scanf("%d", &weight);
+							person.weight = weight;
+							person.state_holder = (int)INPUT_WS;
+
+						} else if(strcmp(desEvent, "lo") == 0){
+							person.state_holder = (int)INPUT_LO;
+						} else if (strcmp(desEvent, "ro") == 0){
+							person.state_holder = (int)INPUT_RO;
+						} else if (strcmp(desEvent, "lc") == 0){
+							person.state_holder = (int)INPUT_LC;
+						} else if (strcmp(desEvent, "rc") == 0){
+							person.state_holder = (int)INPUT_RC;
+						} else if (strcmp(desEvent, "gru") == 0){
+							person.state_holder = (int)INPUT_GRU;
+						} else if (strcmp(desEvent, "grl") == 0){
+							person.state_holder = (int)INPUT_GRL;
+						} else if (strcmp(desEvent, "gll") == 0){
+							person.state_holder = (int)INPUT_GLL;
+						} else if (strcmp(desEvent, "glu") == 0){
+							person.state_holder = (int)INPUT_GLU;
+						}else if (strcmp(desEvent, "exit") == 0) {
+							printf("Exiting");
+							break;//am i breaking out of if or endless loop?
+						}else{
+
+							person.state_holder =144;
+						}
+
+
+				//person.state_holder=desEvent;
+
+				//possible error dsfgjkuehgiuersbgheriug
+				if(MsgSend(coid,&person,sizeof(person),&display,sizeof(display)) == -1){
+							printf("msg send inputs error \n");
+							exit(EXIT_FAILURE);
+						}
+
+
+		}//end of while loopo
+
+
+		//phase 3
+
+		//Call ConnectDetach() to detach from controller's channel
+
+			//EXIT_SUCCESS
+		ConnectDetach(coid);
+
+	return EXIT_SUCCESS;
+}

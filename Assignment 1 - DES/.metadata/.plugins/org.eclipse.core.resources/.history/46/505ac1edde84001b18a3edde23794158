@@ -1,0 +1,367 @@
+#include "D:\QNX\Workspaces\cst8244_assign1\des_controller\src\des.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/neutrino.h>
+#include <sys/netmgr.h>
+
+
+
+void *state_start();
+void *state_ls();
+void *state_rs();
+void *state_ws();
+void *state_lo();
+void *state_ro();
+void *state_lc();
+void *state_rc();
+void *state_gru();
+void *state_grl();
+void *state_gll();
+void *state_glu();
+void *state_exit();
+
+
+pid_t displayPid; /* display pid */
+Display display; /* response structure */
+Person person; /* person structure */
+int coid;
+int chid;
+int rcvid; /* connection id,Channel,return from MsgReceive message */
+
+//FState f_state = st_start;
+
+ControllerState st = state_start;
+
+
+//int lrstate = DEFAULT;
+
+
+
+int main(int argc, char **argv) {
+
+	//Phase I
+	//Get display's PID from command-line arguments
+
+
+
+
+
+	if(argc != 2){
+			perror("Invalid number of arguments for the controller");
+			exit(EXIT_FAILURE);
+		}	//On Failure: print usage message and EXIT_FAILURE
+
+	serverPid = atoi(argv[1]);
+
+
+	printf("des_controller PID:%d \n", getpid());//Print controller's PID; inputs needs to know this PID
+
+
+	chid = ChannelCreate(0);
+
+	if(chid==-1){//Call ChannelCreate() to create a channel for the inputs process to attach
+		perror("Channel could not be created in the controller");
+			exit(EXIT_FAILURE);
+	}//On Failure: print error message and EXIT_FAILURE
+
+
+//	Call ConnectAttach() to attach to display's channel
+	coid = ConnectAttach(ND_LOCAL_NODE,serverPid,1,_NTO_SIDE_CHANNEL,0);
+
+	if(coid == -1){
+		perror("Channel could not connect in the controller");
+		exit(EXIT_FAILURE);
+	}//On Failure: print error message and EXIT_FAILURE
+
+
+
+
+
+
+
+	//Phase II
+	while(1){
+		rcvid = MsgReceive(chid, &person, sizeof(person), NULL);//Call MsgReceive() to receive Person object from inputs
+
+
+		if(rcvid ==-1){
+			perror("Error receiving the message in the controller");
+					exit(EXIT_FAILURE);
+		}
+
+
+		if(person.state_holder == STATE_EXIT){
+			st = (*state_exit)();
+		}
+
+				else{
+					st = (ControllerState)(*st)();
+				}
+
+
+
+
+/*if(person.state_holder == INPUT_LS){
+
+}
+
+else if(person.state_holder ==INPUT_RS){
+
+
+	MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+	//printf("rs  state holder reached    \n");
+
+}*/
+
+		MsgReply(rcvid, EOK, &person, sizeof(person));//Call MsgReply(), sending EOK back to inputs
+
+
+	}
+
+
+
+
+
+	//TODO - get input event from Person object and advance state machine to next accepting state (or error state)
+
+	//Reference - your CST8152 - Compiler notes (***)
+
+	//TODO - complete rest of Phase II for controller
+
+	//Phase III
+	//TODO - implement Phase III for the controller process
+
+
+
+
+
+
+	ConnectDetach(coid); /* Detach from display */
+	ChannelDestroy(chid);/* destroy channel */
+
+    return EXIT_SUCCESS;
+}
+
+void *state_start(){
+
+	if(person.state_holder == INPUT_LS){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+
+			return state_ls;
+		} else if(person.state_holder == INPUT_RS){
+
+			MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+			return state_rs;
+		}
+
+return state_start;
+}
+
+void *state_ls(){
+
+
+	if(person.state_holder == INPUT_GLU){
+
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+
+		return state_glu;
+	}
+
+
+
+    return state_ls;
+}
+
+void *state_rs(){
+
+	if(person.state_holder == INPUT_GRU){
+
+		//printf("gru \n");
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+
+		return state_gru;
+		}
+
+
+    return state_rs;
+}
+
+void *state_ws(){
+
+	if(person.state_holder ==INPUT_LC && person.direction==0){
+
+			MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+			return state_lc;
+		}
+	else if(person.state_holder ==INPUT_RC && person.direction==1){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+		return state_rc;
+	}
+
+
+
+    return state_ws;
+}
+
+void *state_lo(){
+
+
+
+
+	if(person.state_holder == INPUT_WS && person.direction ==0){
+
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+		return state_ws;
+	}
+
+	else if(person.state_holder ==INPUT_LC && person.direction ==1 ){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+
+				return state_lc;
+
+	}
+
+
+
+
+    return state_lo ;
+}
+
+void *state_ro(){
+
+	if(person.state_holder ==INPUT_RC && person.direction ==0){
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+		return state_rc;
+	}
+
+	else if(person.state_holder ==INPUT_WS && person.direction ==1){
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+			return state_ws;
+
+	}
+
+
+    return state_ro;
+}
+
+void *state_lc(){
+
+	if(person.state_holder ==INPUT_GLL){
+
+			MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+			return state_gll;
+		}
+
+
+
+    return state_lc;
+}
+
+void *state_rc(){
+
+
+	if(person.state_holder ==INPUT_GRL){
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+				return state_grl ;
+
+	}
+
+
+
+
+
+    return state_rc;
+}
+
+void *state_gru(){
+
+
+	if(person.state_holder ==INPUT_RO){
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+		return state_ro;
+	}
+
+
+    return state_gru;
+}
+
+void *state_grl(){
+
+	//if(person.direction ==0){
+
+
+		if(person.state_holder==INPUT_LS){
+			MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+				return state_ls;
+		}
+
+		else if(person.state_holder==INPUT_RS){
+					MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+						return state_rs;
+				}
+
+
+	//}//end of if
+	else if(person.state_holder ==INPUT_GLU && person.direction==1){
+
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+			return state_glu;
+	}
+
+
+    return state_grl;
+}
+
+void *state_gll(){
+
+	if(person.state_holder ==INPUT_GRU && person.direction ==0){
+
+			MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+			return state_gru;
+		}
+	else if(person.state_holder==INPUT_LS){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+
+		return state_ls;
+	}else if(person.state_holder==INPUT_RS){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+		return state_rs;
+	}
+
+
+    return state_gll;
+}
+
+void *state_glu(){
+
+
+	if(person.state_holder == INPUT_LO){
+		MsgSend(coid, &person, sizeof(person), &display, sizeof(display));
+		return state_lo;
+	}
+
+
+    return state_glu;
+}
+
+void *state_exit(){
+    return 0;
+}
